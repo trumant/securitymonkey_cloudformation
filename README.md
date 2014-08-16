@@ -1,4 +1,6 @@
-# securitymonkey_cloudformation - Stand up an AWS CloudFormation stack running [SecurityMonkey](https://github.com/Netflix/security_monkey)
+# securitymonkey_cloudformation
+
+Stand up an AWS CloudFormation stack running [SecurityMonkey](https://github.com/Netflix/security_monkey)
 
 This CloudFormation stack creates an AutoScaling Group guaranteeing a single EC2 instance, running SecurityMonkey and storing data in an RDS db. Both the EC2 instance and RDS db are configured with security groups. Simple CloudWatch RDS monitoring is also created. All notifications and alerts from monitoring and the AutoScaling group are published to an SNS topic that will email the provided address.
 
