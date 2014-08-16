@@ -34,7 +34,7 @@ template do
   parameter 'DatabasePassword',
             :Description => 'The password connect to the database',
             :Type => 'String',
-            :Default => 'sec_mky_p@ssw0rd'
+            :Default => 'sec_mky_password'
 
   parameter 'DatabasePort',
             :Description => 'The port to connect to the DB',
@@ -44,12 +44,12 @@ template do
   parameter 'DbClass',
             :Description => 'RDS instance size',
             :Type => 'String',
-            :Default => 'db.t2.micro'
+            :Default => 'db.m3.medium'
 
   parameter 'AllocatedStorage',
             :Description => 'RDS instance storage size in GB',
             :Type => 'String',
-            :Default => '5gb'
+            :Default => '5'
 
   parameter 'EmailAddress',
             :Description => 'Email to where notifications will be sent',
@@ -156,9 +156,8 @@ template do
   resource 'SecurityMonkeyRDS', :Type => 'AWS::RDS::DBInstance', :Properties => {
       :AllowMajorVersionUpgrade => true,
       :AutoMinorVersionUpgrade => true,
-      :DBInstanceIdentifier => ref('DatabaseName'),
+      :DBInstanceIdentifier => 'security-monkey-rds',
       :DBName => ref('DatabaseName'),
-      :DeletionPolicy => 'Snapshot',
       :Engine => 'postgres',
       :Port => ref('DatabasePort'),
       :MasterUsername => ref('DatabaseUserName'),
