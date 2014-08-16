@@ -1,0 +1,12 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    cloudformation-ruby-dsl (0.4.6)
+      detabulator
+    detabulator (0.1.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  cloudformation-ruby-dsl
