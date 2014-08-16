@@ -85,7 +85,7 @@ template do
               },
           ],
       },
-      :Path => '/security_monkey_role',
+      :Path => '/security_monkey_role/',
       :Policies => [
           {
               :PolicyName => 'security_monkey_read_only',
@@ -126,7 +126,7 @@ template do
   }
 
   resource 'SecurityMonkeyInstanceProfile', :Type => 'AWS::IAM::InstanceProfile', :Properties => {
-      :Path => '/security_monkey_instance_profile',
+      :Path => '/security_monkey_instance_profile/',
       :Roles => [ ref('SecurityMonkeyRole') ],
   }
 
