@@ -12,6 +12,29 @@ This CloudFormation stack creates an AutoScaling Group guaranteeing a single EC2
 
 ## Stack Parameters
 
+You must provide values for the following parameters:
+
+- KeyName
+- EmailAddress
+
+To customize the security profile of your stack, also override the default values of:
+
+- CidrIp
+- DatabasePassword
+
+The default value for CidrIp will only allow SSH from the public IPv4 of the host you create the stack from. If your public IPv4 changes, re-generate the stack file using:
+
+```bash
+$ ./security_monkey_stack.rb expand > security_monkey.json
+```
+
+And run a stack update:
+
+```bash
+$ aws cloudformation update-stack --stack-name security-monkey-stack \
+   --template-body file://security_monkey.json
+```
+
 ## Usage
 
 ### Create Your Stack
@@ -33,5 +56,7 @@ If your stack creation fails or you wish to stop being billed for the AWS resour
 ```bash
 $ aws cloudformation delete-stack --stack-name security-monkey-stack
 ```
+
+###
 
 
